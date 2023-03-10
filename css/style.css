@@ -1,0 +1,96 @@
+
+
+#categoria{
+    position: relative;
+    left: 64vw; 
+    width: 9vw;
+    height: 7.6vh;
+    border-radius: 5px;
+     color: #686868;
+     border: solid 1px #fff;
+     backdrop-filter: blur(15px);
+}
+.option{
+   text-align: center;
+  
+}
+body{
+    background:linear-gradient(to left, rgb(4, 4, 4), rgb(11, 21, 97));
+    height: 200vh;
+}
+
+
+
+h2{
+    color: #fff;
+}
+ .carousel-inner{
+    height: 60vh;
+    
+    
+ }
+.form-control::placeholder{
+    color: #fff;
+}
+.img{
+    width: 20vw;
+}
+
+nav{
+    position: absolute;
+    z-index: 4;
+}
+
+.bg-custom {
+    background-color: hsla(0, 0%, 0%, 0.6);
+    backdrop-filter: blur;
+    height: 13vh;
+  }
+.bg-custom2{
+    background-color: #000;
+    color: #fffefe;
+    margin-left: 3vw;
+}
+input.form-control:focus {
+    background-color: #000; 
+    color: #fff;
+   
+  }
+
+.bg-custom3{
+    font-size: 36px; 
+    font-weight: bold;
+    margin-left: 1vw;
+    margin-right: 2vw;
+    margin-bottom: 0.5vh;
+}
+.bg-custom4{
+ 
+    margin-left: 1vw;
+    margin-right: 3vw;
+   
+}
+.bg-custom5{
+    display: block;
+}
+.bg-custom6{
+    background-color: #000000;
+    color: #fff;
+    margin-top: 3vh;
+    margin-left: 1vw;
+
+}
+.bg-custom7{
+ background-color: #000000;
+    color: #fff;
+    height: 4vh;
+}
+
+
+.bg-custom9{
+    margin-left: 2vw;
+}
+.bg-custom10{
+    display: flex;
+    flex-wrap: wrap;
+}
