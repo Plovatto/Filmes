@@ -51,8 +51,18 @@ let listarFilmes = async (filmes) => {
   if(filmes.length > 0) {
     filmes.forEach(async (filme) => {
       listaFilmes.appendChild(await filme.getCard());
+      filme.getBtnDetalhe().onclick=()=>{
+        detalhesFilme(filme.id);
+      }
     });
   }
   return false;
 };
 
+let detalhesFilme = async(id)=>{
+  fetch("http://www.omdbapi.com/?apikey=9d6f18b9&s="+id)
+  .then((resp)=>resp.json())
+  .then((resp)=>{
+
+  
+});}
