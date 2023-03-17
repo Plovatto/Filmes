@@ -96,16 +96,16 @@ input.form-control:focus {
 }
 
 .card-img-top{
-    height: 40vh;
+    height: 50vh;
     width: 18vw;
 }
 
 .card{
-    width: 18vw;
+    width: 19vw;
     font-family: 'Helvetica Neue', sans-serif;
     background-color: #000;
     color: #949494;
-   margin-top: -2vh;
+   margin-top: 2vh;
 
  
 }
@@ -113,8 +113,19 @@ input.form-control:focus {
     font-family: 'Helvetica Neue', sans-serif;
   font-weight: 600;
   font-size: 18px;
-  
+  height: 6vh;
+  width: 17vw;
   color: #fcfcfc;
+  margin: 0;
+  padding: 0;
+}
+.cardtitle{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
 }
 #listaFilmes {
     display: flex;
@@ -123,7 +134,7 @@ input.form-control:focus {
   }
   .bg-custom12{
     
-    margin-left: 2.8vw;
+    margin-left: 2.7vw;
     
   }
 
@@ -135,4 +146,32 @@ input.form-control:focus {
     margin-left: 3vw;
    margin-top: 5vh;
     padding: 0%;
+ }
+ .btnDetalheFilme{
+ 
+    background-color: #000;
+    color: #cccccc;
+    border: solid 1px #e0e0e0;
+    border-radius:8px;
+    bottom: 0;
+margin-bottom: 1vh;
+margin-top: 3vh;
+
+ }
+ .genero{
+    color: #333333;
+   margin-left: 0.1vw;
+  
+
+ }
+
+
+
+ .Classifica{
+   margin-right: 2vw;
+
+ }
+ .Ano{
+  margin-right: 6vw;
+    width: 6vw;
  }

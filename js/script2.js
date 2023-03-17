@@ -26,6 +26,7 @@
       this.elenco = elenco;
       this.classificacao = classificacao;
       this.avaliacao = avaliacao;
+      this.btnDetalhe=null
     }
 
   
@@ -33,6 +34,8 @@
     getCard = async () => {
       const card = document.createElement("div");
       card.setAttribute("class", "card");
+
+
 
    
       const imgCartaz = document.createElement("img");
@@ -46,16 +49,20 @@
       hCardTitle.setAttribute("class", "card-title");
   
       const divDetalhes = document.createElement("div");
-      divDetalhes.setAttribute("style", "display:flex; justify-content:space-around;");
-  
+      divDetalhes.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: row;");
+      const divDetalhes2 = document.createElement("div")
+      divDetalhes2.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: column;");
       const divGenero = document.createElement("div");
-      divGenero.setAttribute("style", "flex-row:1;");
+      divGenero.setAttribute("class", "genero");
+
+  
+
   
       const divAnoProducao = document.createElement("div");
-      divAnoProducao.setAttribute("style", "flex-row:1;");
+      divAnoProducao.setAttribute("class","Ano");
   
       const divClassificacao = document.createElement("div");
-      divClassificacao.setAttribute("style", "flex-row:1;");
+      divClassificacao.setAttribute("class","Classifica");
   
 
 
@@ -64,22 +71,36 @@
       divGenero.appendChild(document.createTextNode(this.genero));
       divClassificacao.appendChild(document.createTextNode(this.classificacao));
   
-      divDetalhes.appendChild(divGenero);
+      divDetalhes2.appendChild(divGenero);
       divDetalhes.appendChild(divAnoProducao);
       divDetalhes.appendChild(divClassificacao);
       card.appendChild(imgCartaz);
       card.appendChild(cardBody);
-      cardBody.appendChild(hCardTitle);
+      cardBody.appendChild(hCardTitle); 
+      cardBody.appendChild(divDetalhes2);
       cardBody.appendChild(divDetalhes);
-
+     
       this.setBtnDetalhe();
-      cardBody.appendChild(this.setBtnDetalhe())
+      cardBody.appendChild(this.getBtnDetalhe());
+      
 
  
       return card;
 
       
-    };
+    }
+    setBtnDetalhe=()=>{
+
+this.btnDetalhe = document.createElement("button");
+this.btnDetalhe.appendChild(document.createTextNode("Detalhes"));
+this.btnDetalhe.setAttribute("id", this.id);
+this.btnDetalhe.setAttribute("class","btnDetalheFilme");
+
+
+}
+getBtnDetalhe=()=>{
+  return this.btnDetalhe
+}
   }
  class Detalhes{
     constructor(id, titulo, ano, genero, duracao, cartaz, sipnose, direcao, elenco, classificacao, avaliacao, btnDetalhe){
@@ -94,20 +115,9 @@
       this.elenco = elenco;
       this.classificacao = classificacao;
       this.avaliacao = avaliacao;
-      this.btnDetalhe=null
+      
     }
 
-setBtnDetalhe=()=>{
 
-this.btnDetalhe = document.createElement("button");
-this.btnDetalhe.appendChild(document.createTextNode("Detalhes"));
-this.btnDetalhe.setAttribute("id, this.id");
-this.btnDetalhe.setAttribute("class","bntDetalheFilme");
-
-
-}
-getBtnDetalhe=()=>{
-  return this.btnDetalhe
-}
    }
 
