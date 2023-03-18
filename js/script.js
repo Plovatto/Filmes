@@ -59,46 +59,24 @@ let listarFilmes = async (filmes) => {
   return false;
 };
 
+let detalhesFilme = async(id)=>{
+  fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
+  .then((resp)=>resp.json())
+  .then((resp)=>{
 
-
-let detalhesFilme = async (id) => {
-  fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i=" + id)
-    .then((resp) => resp.json())
-    .then((resp) => {
-      // cria objeto Filme com informações da API
-      let filme = new Filme(
-        resp.imdbID,
-        resp.Title,
-        resp.Year,
-        resp.Genre.split(","),
-        resp.Runtime,
-        resp.Poster,
-        resp.Plot,
-        resp.Director,
-        resp.Actors.split(","),
-        resp.Awards,
-        resp.imbdRating
-      );
-      filme.getBtnDetalhe().onclick=()=>{
-        
-        document.querySelector("#listaFilmes").style.display = "none";
-        detalhesFilme(filme.id);
-        exibirFilmeDetalhado();
-      }
-
-      filmeDetalhado = filme;
-    });
-    return false;
-};
-
-
-
-  let exibirFilmeDetalhado = async () => {
-    detalhesFilme.innerHTML = ""; 
-    filmes.forEach(async (filme) => {
- detalhesFilme.appendChild(await filmeDetalhado.getCard());
-   await detalhesFilme(filme.id)
-  });
-   
-   
-  };
+    let filme=new Filme(
+      resp.imdbID,
+      resp.Title,
+      resp.Year,
+      resp.Genre.split(","),
+      resp.Runtime,
+      resp.Poster,
+      resp.Plot,
+      resp.Director,
+      resp.Actors.split(","),
+      resp.Awards,
+      resp.imbdRating
+    )
+  
+  
+});}
