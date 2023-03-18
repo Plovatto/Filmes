@@ -117,7 +117,33 @@ getBtnDetalhe=()=>{
       this.avaliacao = avaliacao;
       
     }
+    getCard2 = async () => {
+    const card = document.createElement("div");
+    card.setAttribute("class", "card");
 
 
+
+ 
+    const imgCartaz = document.createElement("img");
+    imgCartaz.setAttribute("class", "card-img-top");
+    imgCartaz.setAttribute("src", this.cartaz);
+
+    const cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "card-body");
+
+    const hCardTitle = document.createElement("h5");
+    hCardTitle.setAttribute("class", "card-title");
+
+    hCardTitle.appendChild(document.createTextNode(this.titulo));
+  
+
+ 
+
+    card.appendChild(imgCartaz);
+    card.appendChild(cardBody);
+    cardBody.appendChild(hCardTitle); 
+    cardBody.appendChild(divDetalhes);
+    return card;
    }
-
+   
+  }

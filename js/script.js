@@ -47,6 +47,7 @@ button.onclick = async ()=>{
 
 let listarFilmes = async (filmes) => {
   let listaFilmes = await document.querySelector("#listaFilmes");
+  
   listaFilmes.innerHTML = "";
   if(filmes.length > 0) {
     filmes.forEach(async (filme) => {
@@ -64,7 +65,7 @@ let detalhesFilme = async(id)=>{
   .then((resp)=>resp.json())
   .then((resp)=>{
 
-    let filme=new Filme(
+    let filme =new Filme(
       resp.imdbID,
       resp.Title,
       resp.Year,
@@ -77,6 +78,9 @@ let detalhesFilme = async(id)=>{
       resp.Awards,
       resp.imbdRating
     )
+    let listaFilmes2 = document.querySelector("#listaFilmes2");
+   this.getCard2();
+    listarfilmes.style.display = "none";
+
   
-  
-});}
+}); return false;}
