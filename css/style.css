@@ -256,3 +256,54 @@ margin-top: 3vh;
     width:15rem;
     height: 50vh;
  }
+ .nav-link{
+  margin-left: 1.5vw;
+ }
+ .btnfavorite{
+  background-color: #000;
+  border: none;
+margin-left: 7.4vw;
+
+ }
+ .imgfavorite{
+  height: 3vh;
+ }
+ #btnfavorite{
+  background-color: #000;
+  border: none;
+margin-left: 6vw;
+
+ }
+ #imgfavorite{
+  height: 3vh;
+ }
+ .cardDetalhe{
+  display: flex;
+  background-color: #000;
+  align-items: center;
+  margin-left: 10vw;
+  margin-top: 4vh;
+  width: 73vw;
+  height: 80vh;
+ }
+ .Imginserc{
+  height: 80vh;
+ }
+ .textoDetalhe{
+  color: hsl(0, 0%, 63%);
+  margin-left: 5vw;
+  font-family: 'Helvetica Neue', sans-serif;
+  
+  
+ }
+
+ .titleDetalhe{
+  margin-bottom: 6vh;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  
+
+ }
+ .Generodet{
+  display: flex;
+ }

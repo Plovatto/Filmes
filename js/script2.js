@@ -63,7 +63,15 @@
   
       const divClassificacao = document.createElement("div");
       divClassificacao.setAttribute("class","Classifica");
-  
+      
+
+
+  const btnfavorite = document.createElement("button");
+btnfavorite.setAttribute("class","btnfavorite");
+const imgfavorite = document.createElement("img");
+imgfavorite.setAttribute("class","imgfavorite");
+imgfavorite.setAttribute("src","./Imagens/Vector.png");
+
 
 
       hCardTitle.appendChild(document.createTextNode(this.titulo));
@@ -79,9 +87,12 @@
       cardBody.appendChild(hCardTitle); 
       cardBody.appendChild(divDetalhes2);
       cardBody.appendChild(divDetalhes);
+    this.setBtnDetalhe(); 
+ cardBody.appendChild(this.getBtnDetalhe());
+
+      btnfavorite.appendChild(imgfavorite); 
+      cardBody.appendChild(btnfavorite);
      
-      this.setBtnDetalhe();
-      cardBody.appendChild(this.getBtnDetalhe());
       
 
  
@@ -90,12 +101,10 @@
       
     }
     setBtnDetalhe=()=>{
-
 this.btnDetalhe = document.createElement("button");
 this.btnDetalhe.setAttribute("class","btnDetalheFilme");
 this.btnDetalhe.setAttribute("id", this.id);
 this.btnDetalhe.appendChild(document.createTextNode("Detalhes"));
-
 
 
 }
@@ -104,24 +113,27 @@ getBtnDetalhe=()=>{
 }
 
     getCard2 =  () => {
-      console.log("oi")
-    
-      let detalheCard = document.createElement("div");
-      detalheCard.setAttribute("class","detalheCard");
       
-      let imgDetalheDiv = document.createElement("div");
-      imgDetalheDiv.setAttribute("class","imgDetalheDiv");
+    
+      let cardDetalhe = document.createElement("div");
+      cardDetalhe.setAttribute("class","cardDetalhe");
+      
+      let imgDetalhe = document.createElement("div");
+      imgDetalhe.setAttribute("class","imgDetalhe");
 
-      let detalheImg = document.createElement("img");
-      detalheImg.setAttribute("class","detalheImg");
-      detalheImg.setAttribute("src",this.cartaz);
+      let Imginserc = document.createElement("img");
+      Imginserc.setAttribute("class","Imginserc");
+      Imginserc.setAttribute("src",this.cartaz);
 
-      let tituloDetalhe = document.createElement("h1");
-      tituloDetalhe.setAttribute("class","TituloDetalhe");
-      tituloDetalhe.appendChild(document.createTextNode(this.titulo));
+      let lineDetalhe = document.createElement("hr");
+      lineDetalhe.setAttribute("class","lineDetalhe");
 
-      let detalheText = document.createElement("div");
-      detalheText.setAttribute("class","detalheText");
+      let titleDetalhe = document.createElement("h2");
+      titleDetalhe.setAttribute("class","titleDetalhe");
+      titleDetalhe.appendChild(document.createTextNode(this.titulo));
+
+      let textoDetalhe = document.createElement("div");
+      textoDetalhe.setAttribute("class","textoDetalhe");
 
       let anoDetalhe = document.createElement("p");
       anoDetalhe.setAttribute("class","anoDetalhe");
@@ -155,22 +167,20 @@ getBtnDetalhe=()=>{
       plotDetalhe.setAttribute("class","plotDetalhe");
       plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sinopse));
 
-      listaFilmes.appendChild(detalheCard);
-
-      imgDetalheDiv.appendChild(detalheImg);
-
-      detalheCard.appendChild(imgDetalheDiv);
-      detalheCard.appendChild(detalheText);
-
-      detalheText.appendChild(tituloDetalhe);
-      detalheText.appendChild(anoDetalhe);
-      detalheText.appendChild(generoDetalhe);
-      detalheText.appendChild(duracaoDetalhe);
-      detalheText.appendChild(diretorDetalhe);
-      detalheText.appendChild(atoresDetalhe);
-      detalheText.appendChild(awardsDetalhe);
-      detalheText.appendChild(avaliacaoDetalhe);
-      detalheText.appendChild(plotDetalhe);
+      listaFilmes.appendChild(cardDetalhe);
+      imgDetalhe.appendChild(Imginserc);
+      cardDetalhe.appendChild(imgDetalhe);
+      cardDetalhe.appendChild(textoDetalhe);
+      cardDetalhe.appendChild(lineDetalhe);
+      textoDetalhe.appendChild(titleDetalhe);
+      textoDetalhe.appendChild(anoDetalhe);
+      textoDetalhe.appendChild(generoDetalhe);
+      textoDetalhe.appendChild(duracaoDetalhe);
+      textoDetalhe.appendChild(diretorDetalhe);
+      textoDetalhe.appendChild(atoresDetalhe);
+      textoDetalhe.appendChild(awardsDetalhe);
+      textoDetalhe.appendChild(avaliacaoDetalhe);
+      textoDetalhe.appendChild(plotDetalhe);
    }
    
   }

@@ -1,6 +1,10 @@
 let search = document.querySelector("#search");
 let carrosel = document.querySelector("#carouselExample");
 let some = document.querySelector("#cardsumir");
+let input = document.querySelector("#search");
+let button = document.querySelector("#buttonsearch");
+listarFilmes2 = document.querySelector("#listarfilmes2");
+let filmes;
 
 search.addEventListener('input', function() {
   if (search.value === '') {
@@ -14,10 +18,7 @@ search.addEventListener('input', function() {
 
 
 
-let input = document.querySelector("#search");
-let button = document.querySelector("#buttonsearch");
-listarFilmes2 = document.querySelector("#listarfilmes2");
-let filmes;
+
 button.onclick = async ()=>{
   if(input.value.length>0){
     filmes = new Array();
@@ -29,7 +30,7 @@ button.onclick = async ()=>{
             item.imdbID,
             item.Title,
             item.Year,
-            null,
+            item.Genero,
             null,
             item.Poster,
             null,
@@ -64,7 +65,7 @@ let listarFilmes = async (filmes) => {
   return false;
 };
 
-btnDetalheFilme.onclick = ()=>{
+
 let detalhesFilme = async(id)=>{ 
   
   listaFilmes.innerHTML="";
@@ -79,19 +80,18 @@ let detalhesFilme = async(id)=>{
       resp.Genre.split(","),
       resp.Runtime,
       resp.Poster,
-      resp.Plot,
       resp.Director,
       resp.Actors.split(","),
       resp.Awards,
       resp.imbdRating,
-      resp.Awards,
-      null
+      resp.Plot
+     
     );
   
    filme.getCard2();
    
 
  
-}); return false;}}
+}); return false;}
 
 

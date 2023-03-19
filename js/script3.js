@@ -1,4 +1,7 @@
 
+     btnDetalheFilme = document.querySelectorAll(".btnDetalheFilme");
+     
+     
      function card1(){
 
     const apiUrl = `https://www.omdbapi.com/?apikey=9d6f18b9&type=movie&t=Avatar: The Way of Water`;
@@ -19,6 +22,8 @@
      genero1.textContent = response.Genre;
      ano1.textContent = response.Year;
      duracao1.textContent = response.Runtime;
+
+    
      
     })}
   function card2(){
@@ -41,7 +46,7 @@
      ano2.textContent = response.Year;
      duracao2.textContent = response.Runtime;
       
-
+    
     });
   };
   function card3(){
@@ -64,7 +69,7 @@
      ano3.textContent = response.Year;
      duracao3.textContent = response.Runtime;
       
-     
+    
     });
   };
   function card4(){
@@ -135,7 +140,7 @@
      ano6.textContent = response.Year;
      duracao6.textContent = response.Runtime;
       
-     
+    
     });
   };
   function card7(){
