@@ -119,7 +119,79 @@ input.form-control:focus {
   margin: 0;
   padding: 0;
 }
-.cardtitle{
+#titulo1{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo2{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo3{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo4{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo5{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo6{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo7{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo8{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo9{
+    font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+  color: #fcfcfc;
+ 
+}
+#titulo10{
     font-family: 'Helvetica Neue', sans-serif;
   font-weight: 600;
   font-size: 18px;
@@ -148,7 +220,8 @@ input.form-control:focus {
     padding: 0%;
  }
  .btnDetalheFilme{
- 
+width: 5.2vw;
+text-align: center;
     background-color: #000;
     color: #cccccc;
     border: solid 1px #e0e0e0;
@@ -174,4 +247,12 @@ margin-top: 3vh;
  .Ano{
   margin-right: 6vw;
     width: 6vw;
+ }
+.img{
+    width:15rem;
+    height: 50vh;
+ }
+ .img3{
+    width:15rem;
+    height: 50vh;
  }

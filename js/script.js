@@ -12,12 +12,15 @@ search.addEventListener('input', function() {
   }
 });
 
+
+
 let input = document.querySelector("#search");
 let button = document.querySelector("#buttonsearch");
-
+listarFilmes2 = document.querySelector("#listarfilmes2");
+let filmes;
 button.onclick = async ()=>{
   if(input.value.length>0){
-    let filmes = new Array();
+    filmes = new Array();
     fetch("https://www.omdbapi.com/?apikey=9d6f18b9&s=" + input.value,{mode:"cors"})
       .then((resp)=>resp.json())
       .then((resp)=>{
@@ -44,9 +47,10 @@ button.onclick = async ()=>{
   return false;
 };
 
-
+let listaFilmes = document.querySelector("#listaFilmes");
+let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
 let listarFilmes = async (filmes) => {
-  let listaFilmes = await document.querySelector("#listaFilmes");
+  
   
   listaFilmes.innerHTML = "";
   if(filmes.length > 0) {
@@ -60,12 +64,15 @@ let listarFilmes = async (filmes) => {
   return false;
 };
 
-let detalhesFilme = async(id)=>{
+btnDetalheFilme.onclick = ()=>{
+let detalhesFilme = async(id)=>{ 
+  
+  listaFilmes.innerHTML="";
   fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
   .then((resp)=>resp.json())
   .then((resp)=>{
 
-    let filme =new Filme(
+    let filme = new Filme(
       resp.imdbID,
       resp.Title,
       resp.Year,
@@ -76,11 +83,15 @@ let detalhesFilme = async(id)=>{
       resp.Director,
       resp.Actors.split(","),
       resp.Awards,
-      resp.imbdRating
-    )
-    let listaFilmes2 = document.querySelector("#listaFilmes2");
-   this.getCard2();
-    listarfilmes.style.display = "none";
-
+      resp.imbdRating,
+      resp.Awards,
+      null
+    );
   
-}); return false;}
+   filme.getCard2();
+   
+
+ 
+}); return false;}}
+
+
