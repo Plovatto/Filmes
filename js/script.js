@@ -30,10 +30,11 @@ button.onclick = async ()=>{
             item.imdbID,
             item.Title,
             item.Year,
+            
+            null,
             item.Genero,
             null,
             item.Poster,
-            null,
             null,
             null,
             null,
@@ -72,21 +73,24 @@ let detalhesFilme = async(id)=>{
   fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
   .then((resp)=>resp.json())
   .then((resp)=>{
-
+console.log(resp);
     let filme = new Filme(
       resp.imdbID,
       resp.Title,
       resp.Year,
       resp.Genre.split(","),
       resp.Runtime,
+      resp.Plot,
       resp.Poster,
       resp.Director,
       resp.Actors.split(","),
+      resp.imdbRating,
+      resp.imdbRating,
       resp.Awards,
-      resp.imbdRating,
-      resp.Plot
+      resp.Awards,
+      null
      
-    );
+    );console.log(filme);
   
    filme.getCard2();
    

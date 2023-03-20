@@ -14,19 +14,21 @@
   }
   
   class Filme {
-    constructor(id, titulo, ano, genero, duracao, cartaz, sipnose, direcao, elenco, classificacao, avaliacao) {
+    constructor(id, titulo, ano, genero, duracao, sipnose, cartaz, direcao, elenco, avaliacao,classificacao,  premios, btnDetalhe ) {
       this.id = id;
-      this.genero = genero;
       this.titulo = titulo;
       this.ano = ano;
+      this.genero = genero;
       this.duracao = duracao;
       this.cartaz = cartaz;
-      this.sipnose = sipnose;
       this.direcao = direcao;
       this.elenco = elenco;
       this.classificacao = classificacao;
       this.avaliacao = avaliacao;
-      this.btnDetalhe=null
+      this.premios = premios;
+      
+      this.sipnose = sipnose;
+      this.btnDetalhe=null;
     }
 
   
@@ -157,7 +159,7 @@ getBtnDetalhe=()=>{
 
       let awardsDetalhe = document.createElement("p");
       awardsDetalhe.setAttribute("class","awardsDetalhe");
-      awardsDetalhe.appendChild(document.createTextNode("Prêmios: "+this.awards));
+      awardsDetalhe.appendChild(document.createTextNode("Prêmios: "+this.premios));
 
       let avaliacaoDetalhe = document.createElement("p");
       avaliacaoDetalhe.setAttribute("class","avaliacaoDetalhe");
@@ -165,7 +167,7 @@ getBtnDetalhe=()=>{
       
       let plotDetalhe = document.createElement("p");
       plotDetalhe.setAttribute("class","plotDetalhe");
-      plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sinopse));
+      plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sipnose));
 
       listaFilmes.appendChild(cardDetalhe);
       imgDetalhe.appendChild(Imginserc);
