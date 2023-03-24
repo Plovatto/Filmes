@@ -14,7 +14,7 @@
   }
   
   class Filme {
-    constructor(id, titulo, ano, genero, duracao, sipnose, cartaz, direcao, elenco, avaliacao,classificacao,  premios, btnDetalhe ) {
+    constructor(id, titulo, ano, genero, duracao, sipnose, cartaz, direcao, elenco, avaliacao,classificacao,  premios, btnDetalhe,btnfavorite ) {
       this.id = id;
       this.titulo = titulo;
       this.ano = ano;
@@ -29,6 +29,7 @@
       
       this.sipnose = sipnose;
       this.btnDetalhe=null;
+      this.btnfavorite=null;
     }
 
   
@@ -68,11 +69,7 @@
       
 
 
-  const btnfavorite = document.createElement("button");
-btnfavorite.setAttribute("class","btnfavorite");
-const imgfavorite = document.createElement("img");
-imgfavorite.setAttribute("class","imgfavorite");
-imgfavorite.setAttribute("src","./Imagens/Vector.png");
+
 
 
 
@@ -90,12 +87,11 @@ imgfavorite.setAttribute("src","./Imagens/Vector.png");
       cardBody.appendChild(divDetalhes2);
       cardBody.appendChild(divDetalhes);
     this.setBtnDetalhe(); 
+   
  cardBody.appendChild(this.getBtnDetalhe());
 
-      btnfavorite.appendChild(imgfavorite); 
-      cardBody.appendChild(btnfavorite);
-     
       
+     
 
  
       return card;
@@ -141,6 +137,7 @@ getBtnDetalhe=()=>{
       anoDetalhe.setAttribute("class","anoDetalhe");
       anoDetalhe.appendChild(document.createTextNode("Ano: "+this.ano));
 
+
       let generoDetalhe = document.createElement("p");
       generoDetalhe.setAttribute("class","generoDetalhe");
       generoDetalhe.appendChild(document.createTextNode("Gênero: "+this.genero));
@@ -169,12 +166,24 @@ getBtnDetalhe=()=>{
       plotDetalhe.setAttribute("class","plotDetalhe");
       plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sipnose));
 
+      const btnfechar = document.createElement("button");
+btnfechar.setAttribute("class","btnfechar");
+
+ const btnfavorite = document.createElement("button");
+     btnfavorite.setAttribute("class","btnfavorite");
+     const imgfavorite = document.createElement("img");
+     imgfavorite.setAttribute("class","imgfavorite");
+     imgfavorite.setAttribute("src","./Imagens/Vector.png"); 
+
+
       listaFilmes.appendChild(cardDetalhe);
       imgDetalhe.appendChild(Imginserc);
       cardDetalhe.appendChild(imgDetalhe);
+     
       cardDetalhe.appendChild(textoDetalhe);
-      cardDetalhe.appendChild(lineDetalhe);
+     
       textoDetalhe.appendChild(titleDetalhe);
+      
       textoDetalhe.appendChild(anoDetalhe);
       textoDetalhe.appendChild(generoDetalhe);
       textoDetalhe.appendChild(duracaoDetalhe);
@@ -182,9 +191,21 @@ getBtnDetalhe=()=>{
       textoDetalhe.appendChild(atoresDetalhe);
       textoDetalhe.appendChild(awardsDetalhe);
       textoDetalhe.appendChild(avaliacaoDetalhe);
-      textoDetalhe.appendChild(plotDetalhe);
+      textoDetalhe.appendChild(plotDetalhe);     
+          btnfavorite.appendChild(imgfavorite); 
+     cardDetalhe.appendChild(btnfavorite);
+cardDetalhe.appendChild(btnfechar)
+
+
+
+
+     
    }
    
+   
+   
+
+
   }
  
    

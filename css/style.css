@@ -231,6 +231,12 @@ margin-bottom: 1vh;
 margin-top: 3vh;
 
  }
+.btnDetalheFilme:hover{
+  background-color: #fff;
+  color: #000;
+}
+
+
  .genero{
     color: #333333;
    margin-left: 0.1vw;
@@ -260,20 +266,17 @@ margin-top: 3vh;
   margin-left: 1.5vw;
  }
  .btnfavorite{
-  background-color: #000;
+  background-color: #000000;
   border: none;
-margin-left: 7.4vw;
+margin-bottom: -77vh;
+margin-right: 2vw;
 
  }
  .imgfavorite{
   height: 3vh;
  }
- #btnfavorite{
-  background-color: #000;
-  border: none;
-margin-left: 6vw;
+ 
 
- }
  #imgfavorite{
   height: 3vh;
  }
@@ -284,14 +287,14 @@ margin-left: 6vw;
   margin-left: 10vw;
   margin-top: 4vh;
   width: 73vw;
-  height: 80vh;
+  height: 90vh;
  }
  .Imginserc{
-  height: 80vh;
+  height: 90vh;
  }
  .textoDetalhe{
   color: hsl(0, 0%, 63%);
-  margin-left: 5vw;
+  margin-left: 3vw;
   font-family: 'Helvetica Neue', sans-serif;
   
   

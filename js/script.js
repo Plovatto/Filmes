@@ -43,12 +43,15 @@ button.onclick = async ()=>{
           filmes.push(filme);
         }); 
         listarFilmes(filmes);
-        
+       
+ 
+
       });
+
   }
   return false;
 };
-
+let btnfavorite = document.querySelector(".btnfavorite");
 let listaFilmes = document.querySelector("#listaFilmes");
 let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
 let listarFilmes = async (filmes) => {
@@ -65,7 +68,47 @@ let listarFilmes = async (filmes) => {
   }
   return false;
 };
+let filmeFavoritos = localStorage.getItem('filmesFavoritos');
+filmesFavoritos=JSON.parse(filmesFavoritos);
+ filmes=new Array();
+filmesFavoritos.forEach((item)=>{
 
+let filme = new Filme(
+
+ item.id,
+ item.titulo,
+ item.ano,
+ item.genero,
+ item.duracao,
+ item.cartaz,
+ item.direcao,
+ item.elenco,
+ item.classificacao,
+ item.avaliacao
+  
+);
+filmes.push(filme);
+
+});
+listarFilmes(filmes);
+
+
+function saveFavorite(){
+
+let filmeFavoritos = localStorage.getItem('filmesFavoritos');
+var filmes = JSON.parse(favoritos);
+filmes,push(filme);
+filmes=JSON.stringify(filmes);
+console.log(favoritoobj.filmes);
+localStorage.setItem('filmesFavoritos',filmes);
+
+};
+
+let navFavoritos = document.querySelector("#navFavoritos");
+navFavoritos.onclick=()=>{
+  saveFavorite();
+
+}
 
 let detalhesFilme = async(id)=>{ 
   
@@ -93,7 +136,30 @@ console.log(resp);
     );console.log(filme);
   
    filme.getCard2();
-   
+    console.log("help");
+
+
+
+
+document.querySelector("#listafilme2").appendChild(filme.getCard2());
+document.querySelector(".btnfechar").onclick=()=>{
+
+
+  document.querySelector("#listafilmes").style.display="flex";
+ 
+  document.querySelector("#listafilmes2").innerHTML="";
+  document.querySelector("#listafilmes2").style.display="none";
+  
+
+}
+document.querySelector(".btnfavorite").onclick=()=>{
+saveFavorite(filme);
+
+}
+ document.querySelector("#listafilmes").style.display="none";
+document.querySelector("#listafilmes2").style.display="flex";
+
+
 
  
 }); return false;}
