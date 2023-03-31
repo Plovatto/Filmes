@@ -9,12 +9,6 @@ favoritosmostrar = document.querySelector(".favoritosmostrar");
 
 
 let clicar = false;
-function paradeclicar(){
-  if(clicar===false){
-
-
-  }
-}
 
 
 let filmes;
@@ -157,10 +151,10 @@ let saveFavorite = (id) => {
   })
 }
 
- 
+ function paradeclicar(){
+  if(clicar===false){
 
-document.querySelector("#navFavoritos").onclick = ()=>{
-  let filmeFavoritos = localStorage.getItem('filmesFavoritos');
+ let filmeFavoritos = localStorage.getItem('filmesFavoritos');
   salvamentodeFilmes = JSON.parse(filmeFavoritos) || [];
   if(salvamentodeFilmes.length > 0){
     salvamentodeFilmes.forEach((id) =>{
@@ -173,6 +167,13 @@ listaFilmes.innerHTML="";
 listaFilmes2.innerHTML="";
 some.innerHTML="";
 carrosel.innerHTML="";
+  }
+  clicar=true;
+}
+
+
+document.querySelector("#navFavoritos").onclick = ()=>{
+ paradeclicar();
   }
 
   let favCards = (titulo , genero , ano , poster, btn, idFav) => {
@@ -214,7 +215,7 @@ const btndesfavorite = document.createElement("button");
      btndesfavorite.setAttribute("class","btndesfavorite");
      const imgdesfavorite = document.createElement("img");
      imgdesfavorite.setAttribute("class","imgdesfavorite");
-     imgdesfavorite.setAttribute("src","./Imagens/Vector.png"); 
+     imgdesfavorite.setAttribute("src","./Imagens/Vectordesfav.png"); 
 textoFavoritos.appendChild(document.createTextNode(titulo));
 anoFavoritos.appendChild(document.createTextNode(ano));
 generoFavoritos.appendChild(document.createTextNode(genero));

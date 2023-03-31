@@ -166,8 +166,7 @@ getBtnDetalhe=()=>{
       plotDetalhe.setAttribute("class","plotDetalhe");
       plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sipnose));
 
-      const btnfechar = document.createElement("button");
-btnfechar.setAttribute("class","btnfechar");
+
 
  const btnfavorite = document.createElement("button");
      btnfavorite.setAttribute("class","btnfavorite");
@@ -194,7 +193,7 @@ btnfechar.setAttribute("class","btnfechar");
       textoDetalhe.appendChild(plotDetalhe);     
           btnfavorite.appendChild(imgfavorite); 
      cardDetalhe.appendChild(btnfavorite);
-cardDetalhe.appendChild(btnfechar)
+
 
 
 
@@ -202,6 +201,11 @@ cardDetalhe.appendChild(btnfechar)
      
    }
    navFavoritos = document.querySelector("#navFavoritos");
+
+
+
+
+   
    getCard3 = () => {
     const cardfavoritos = document.createElement("div");
     cardfavoritos.setAttribute("class", "cardfavoritos");
