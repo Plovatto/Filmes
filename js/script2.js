@@ -201,11 +201,75 @@ cardDetalhe.appendChild(btnfechar)
 
      
    }
+   navFavoritos = document.querySelector("#navFavoritos");
+   getCard3 = () => {
+    const cardfavoritos = document.createElement("div");
+    cardfavoritos.setAttribute("class", "cardfavoritos");
+
+
+
+ 
+    const imgFavoritos = document.createElement("img");
+    imgFavoritos.setAttribute("class","imgFavoritos");
+    imgFavoritos.setAttribute("src", this.cartaz);
+
+    const bodyFavoritos = document.createElement("div");
+    bodyFavoritos.setAttribute("class", "bodyFavoritos");
+
+    const cardFavoritos = document.createElement("h5");
+    cardFavoritos.setAttribute("class", "cardFavoritos");
+
+    const detalhesFavoritos = document.createElement("div");
+    detalhesFavoritos.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: row;");
+
+    const detalhesFavoritos2 = document.createElement("div")
+    detalhesFavoritos2.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: column;");
+
+    const generoFavoritos = document.createElement("div");
+    generoFavoritos.setAttribute("class", "generofav");
+
+
+
+
+    const anoFavoritos = document.createElement("div");
+    anoFavoritos.setAttribute("class","Anofav");
+
+    const clasFavoritos = document.createElement("div");
+    clasFavoritos.setAttribute("class","Clasfav");
+    
+
+
+
+
+
+
+    cardFavoritos.appendChild(document.createTextNode(this.titulo));
+    anoFavoritos.appendChild(document.createTextNode(this.ano));
+    generoFavoritos.appendChild(document.createTextNode(this.genero));
+    clasFavoritos.appendChild(document.createTextNode(this.classificacao));
+
+    detalhesFavoritos2.appendChild(generoFavoritos);
+    detalhesFavoritos.appendChild(anoFavoritos);
+    detalhesFavoritos.appendChild(clasFavoritos);
+    cardfavoritos.appendChild(imgFavoritos);
+    cardfavoritos.appendChild(bodyFavoritos);
+    bodyFavoritos.appendChild(cardFavoritos); 
+    bodyFavoritos.appendChild(detalhesFavoritos2);
+    bodyFavoritos.appendChild(detalhesFavoritos);
+  this.setBtnDetalhe(); 
+ 
+bodyFavoritos.appendChild(this.getBtnDetalhe());
+
+    
    
-   
+
+
+
+    
+  }
    
 
 
   }
- 
+
    

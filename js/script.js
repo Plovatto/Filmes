@@ -3,15 +3,31 @@ let carrosel = document.querySelector("#carouselExample");
 let some = document.querySelector("#cardsumir");
 let input = document.querySelector("#search");
 let button = document.querySelector("#buttonsearch");
-let listarFilmes2 = document.querySelector("#listarfilmes2");
+let listarFilmes2 = document.querySelector("#listaFilmes2");
+let listarFilmes = document.querySelector("#listaFilmes");
+favoritosmostrar = document.querySelector(".favoritosmostrar");
+function limpa(){
+
+
+
+ listarFilmes2.style.visibility = "hidden"; 
+  listarFilmes2.style.display = "none";
+  listarFilmes.style.visibility = "hidden"; 
+  listarFilmes.style.display = "none";
+
+}
+
+
 let filmes;
 search.addEventListener('input', function() {
   if (search.value === '') {
     carrosel.style.display = 'block';
     some.style.dysplay = 'block';
+    
   } else {
     carrosel.style.display = 'none';
     some.style.display = 'none';
+   
   }
 });
 
@@ -19,6 +35,7 @@ search.addEventListener('input', function() {
 
 
 button.onclick = async ()=>{
+  favoritosmostrar.innerHTML="";
   if(input.value.length>0){
     filmes = new Array();
     fetch("https://www.omdbapi.com/?apikey=9d6f18b9&s=" + input.value,{mode:"cors"})
@@ -53,7 +70,7 @@ button.onclick = async ()=>{
 let btnfavorite = document.querySelector(".btnfavorite");
 let listaFilmes = document.querySelector("#listaFilmes");
 let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
-let listarFilmes = async (filmes) => {
+ listarFilmes = async (filmes) => {
   
   
   listaFilmes.innerHTML = "";
@@ -69,7 +86,7 @@ let listarFilmes = async (filmes) => {
 };
 
 let detalhesFilme = async(id)=>{ 
-  
+  favoritosmostrar.innerHTML="";
   listaFilmes.innerHTML="";
   fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
   .then((resp)=>resp.json())
@@ -99,22 +116,20 @@ console.log(resp);
 
 document.querySelector(".btnfavorite").onclick=()=>{
 saveFavorite(filme.id);
-
+limpa();
 }
 document.querySelector(".btnfechar").onclick=()=>{
 
 
-  document.querySelector("#listafilmes").style.display="flex";
+
  
-  document.querySelector("#listafilmes2").innerHTML="";
-  document.querySelector("#listafilmes2").style.display="none";
   
 
 }
 
 
- document.querySelector("#listafilmes").style.display="none";
-document.querySelector("#listafilmes2").style.display="flex";
+
+
 
 
 
@@ -124,7 +139,10 @@ document.querySelector("#listafilmes2").style.display="flex";
 
 let salvamentodeFilmes = [];
 
+let favIndex = document.querySelector(".favoritosmostrar");
+
 let saveFavorite = (id) => {
+  
   console.log("testeFavBtn");
   let filmeFavoritos = localStorage.getItem('filmesFavoritos');
   salvamentodeFilmes = JSON.parse(filmeFavoritos) || [];
@@ -142,64 +160,97 @@ let saveFavorite = (id) => {
 
 }; 
 
-let navFavoritos = document.querySelector("#navFavoritos");
-navFavoritos.onclick=()=>{
-  saveFavorite();
-
+ let odiodeFetch = (id) => {
+ 
+  fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
+  .then((resp) => resp.json())
+  .then((resp) => {
+      favCards(resp.Title , resp.Genre , resp.Year , resp.Poster, null, resp.imdbID)
+  })
 }
 
-filmesFavoritos.forEach((item)=>{
+ 
 
-let filme = new Filme(
-
- item.id,
- item.titulo,
- item.ano,
- item.genero,
- item.duracao,
- item.cartaz,
- item.direcao,
- item.elenco,
- item.classificacao,
- item.avaliacao
-  
-);
-filmes.push(filme);
-
-});
-listarFilmes(filmes);
+document.querySelector("#navFavoritos").onclick = ()=>{
+  let filmeFavoritos = localStorage.getItem('filmesFavoritos');
+  salvamentodeFilmes = JSON.parse(filmeFavoritos) || [];
+  if(salvamentodeFilmes.length > 0){
+    salvamentodeFilmes.forEach((id) =>{
+      odiodeFetch(id);
+    });
+  }
 
 
+listaFilmes.innerHTML="";
+listaFilmes2.innerHTML="";
+some.innerHTML="";
+carrosel.innerHTML="";
+  }
+
+  let favCards = (titulo , genero , ano , poster, btn, idFav) => {
+    
+    
+    
+const cardfavoritos = document.createElement("div");
+cardfavoritos.setAttribute("class", "card1");
+
+const imgFavoritos = document.createElement("img");
+imgFavoritos.setAttribute("class","card-img-top1");
+imgFavoritos.setAttribute("src", poster);
+
+const bodyFavoritos = document.createElement("div");
+bodyFavoritos.setAttribute("class", "card-body1");
+
+const textoFavoritos = document.createElement("h5");
+textoFavoritos.setAttribute("class", "card-title1");
+
+const detalhesFavoritos = document.createElement("div");
+detalhesFavoritos.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: row;");
+
+const detalhesFavoritos2 = document.createElement("div")
+detalhesFavoritos2.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: column;");
+
+const generoFavoritos = document.createElement("div");
+generoFavoritos.setAttribute("class", "genero1");
+
+
+const anoFavoritos = document.createElement("div");
+anoFavoritos.setAttribute("class","Ano1");
+
+const clasFavoritos = document.createElement("div");
+clasFavoritos.setAttribute("class","Clasfav");
+let btnDetalhe = document.createElement("button");
+btnDetalhe.setAttribute("class","btnDetalheFilme1");
+btnDetalhe.appendChild(document.createTextNode("Detalhes"));
+
+textoFavoritos.appendChild(document.createTextNode(titulo));
+anoFavoritos.appendChild(document.createTextNode(ano));
+generoFavoritos.appendChild(document.createTextNode(genero));
+// clasFavoritos.appendChild(document.createTextNode(this.classificacao));
+
+bodyFavoritos.appendChild(cardfavoritos);
+cardfavoritos.appendChild(imgFavoritos);
+cardfavoritos.appendChild(textoFavoritos);
+detalhesFavoritos2.appendChild(generoFavoritos) ;
+detalhesFavoritos.appendChild(anoFavoritos);
+detalhesFavoritos.appendChild(clasFavoritos);
+cardfavoritos.appendChild(generoFavoritos);
+cardfavoritos.appendChild(clasFavoritos);
+cardfavoritos.appendChild(anoFavoritos);
 
 
 
+cardfavoritos.appendChild(detalhesFavoritos2);
+cardfavoritos.appendChild(detalhesFavoritos);
+cardfavoritos.appendChild(btnDetalhe);
 
+favIndex.appendChild(bodyFavoritos);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+btnDetalheFilme.onclick = () => {
+  detalhesFilme(id);
+  favIndex.innerHTML = "";
+ limpa();
+  };}
 
 
 
