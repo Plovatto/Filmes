@@ -3,18 +3,17 @@ let carrosel = document.querySelector("#carouselExample");
 let some = document.querySelector("#cardsumir");
 let input = document.querySelector("#search");
 let button = document.querySelector("#buttonsearch");
-let listarFilmes2 = document.querySelector("#listaFilmes2");
-let listarFilmes = document.querySelector("#listaFilmes");
+let listaFilmes2 = document.querySelector("#listaFilmes2");
+let listaFilmes = document.querySelector("#listaFilmes");
 favoritosmostrar = document.querySelector(".favoritosmostrar");
-function limpa(){
 
 
+let clicar = false;
+function paradeclicar(){
+  if(clicar===false){
 
- listarFilmes2.style.visibility = "hidden"; 
-  listarFilmes2.style.display = "none";
-  listarFilmes.style.visibility = "hidden"; 
-  listarFilmes.style.display = "none";
 
+  }
 }
 
 
@@ -68,7 +67,7 @@ button.onclick = async ()=>{
   return false;
 };
 let btnfavorite = document.querySelector(".btnfavorite");
-let listaFilmes = document.querySelector("#listaFilmes");
+
 let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
  listarFilmes = async (filmes) => {
   
@@ -88,6 +87,7 @@ let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
 let detalhesFilme = async(id)=>{ 
   favoritosmostrar.innerHTML="";
   listaFilmes.innerHTML="";
+  some.innerHTML="";
   fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
   .then((resp)=>resp.json())
   .then((resp)=>{
@@ -116,24 +116,12 @@ console.log(resp);
 
 document.querySelector(".btnfavorite").onclick=()=>{
 saveFavorite(filme.id);
-limpa();
+
 }
 document.querySelector(".btnfechar").onclick=()=>{
 
-
-
- 
-  
-
 }
 
-
-
-
-
-
-
- 
 }); }
 
 
@@ -220,9 +208,13 @@ anoFavoritos.setAttribute("class","Ano1");
 const clasFavoritos = document.createElement("div");
 clasFavoritos.setAttribute("class","Clasfav");
 let btnDetalhe = document.createElement("button");
-btnDetalhe.setAttribute("class","btnDetalheFilme1");
+btnDetalhe.setAttribute("class","btnDetalheFilme");
 btnDetalhe.appendChild(document.createTextNode("Detalhes"));
-
+const btndesfavorite = document.createElement("button");
+     btndesfavorite.setAttribute("class","btndesfavorite");
+     const imgdesfavorite = document.createElement("img");
+     imgdesfavorite.setAttribute("class","imgdesfavorite");
+     imgdesfavorite.setAttribute("src","./Imagens/Vector.png"); 
 textoFavoritos.appendChild(document.createTextNode(titulo));
 anoFavoritos.appendChild(document.createTextNode(ano));
 generoFavoritos.appendChild(document.createTextNode(genero));
@@ -243,14 +235,32 @@ cardfavoritos.appendChild(anoFavoritos);
 cardfavoritos.appendChild(detalhesFavoritos2);
 cardfavoritos.appendChild(detalhesFavoritos);
 cardfavoritos.appendChild(btnDetalhe);
+btndesfavorite.appendChild(imgdesfavorite); 
+cardfavoritos.appendChild(btndesfavorite);
 
 favIndex.appendChild(bodyFavoritos);
 
-btnDetalheFilme.onclick = () => {
-  detalhesFilme(id);
+btnDetalhe.onclick = () => {
+  detalhesFilme(idFav);
   favIndex.innerHTML = "";
- limpa();
-  };}
+
+  };
+
+btndesfavorite.onclick=()=>{
+  salvamentodeFilmes=JSON.parse(localStorage.getItem('filmesFavoritos'))|| [];
+let index = salvamentodeFilmes.indexOf(idFav);
+if(index >-1){
+  salvamentodeFilmes.splice(index, 1);
+}
+
+localStorage.setItem('filmesFavoritos',JSON.stringify(salvamentodeFilmes));
+favIndex.removeChild(bodyFavoritos);
+
+}
+
+
+
+}
 
 
 

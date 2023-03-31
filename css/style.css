@@ -320,10 +320,19 @@ margin-bottom: -77vh;
 margin-right: 2vw;
 
  }
+ .btndesfavorite{
+  background-color: #000000;
+  border: none;
+margin-bottom: -77vh;
+margin-right: 2vw;
+
+ }
  .imgfavorite{
   height: 3vh;
  }
- 
+ .imgdesfavorite{
+  height: 3vh;
+ }
 
  #imgfavorite{
   height: 3vh;
