@@ -60,6 +60,7 @@ button.onclick = async ()=>{
       });
 
   };
+  clicar=false;
   return false;
 };
 
@@ -120,7 +121,7 @@ console.log(resp);
 document.querySelector(".btnfavorite").onclick=()=>{
 saveFavorite(filme.id);
 };
-
+clicar=false;
 }); }
 
 //salvar filmes no localstorage//
