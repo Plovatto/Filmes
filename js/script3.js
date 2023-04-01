@@ -1,22 +1,8 @@
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    btnDetalheFilme = document.querySelectorAll(".btnDetalheFilme");
-     
+  btnDetalheFilme = document.querySelectorAll(".btnDetalheFilme");
+  
+  //cards de inicio
      
     function card1(){
 
@@ -253,6 +239,8 @@
     
    });
  };
+ 
+ //quando carrega a pagina chama as funções 
  window.onload = function() {
  
    card1();

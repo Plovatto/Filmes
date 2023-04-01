@@ -1,3 +1,4 @@
+//variaveis
 let search = document.querySelector("#search");
 let carrosel = document.querySelector("#carouselExample");
 let some = document.querySelector("#cardsumir");
@@ -6,11 +7,13 @@ let button = document.querySelector("#buttonsearch");
 let listaFilmes2 = document.querySelector("#listaFilmes2");
 let listaFilmes = document.querySelector("#listaFilmes");
 favoritosmostrar = document.querySelector(".favoritosmostrar");
+let btnfavorite = document.querySelector(".btnfavorite");
 
-
+//não adicionar varios favoritos quando clicar
 let clicar = false;
 
 
+//apagar quando digitar
 let filmes;
 search.addEventListener('input', function() {
   if (search.value === '') {
@@ -21,11 +24,11 @@ search.addEventListener('input', function() {
     carrosel.style.display = 'none';
     some.style.display = 'none';
    
-  }
+  };
 });
 
 
-
+//Primeira parte, mostrar os cards quando pesquisar//
 
 button.onclick = async ()=>{
   favoritosmostrar.innerHTML="";
@@ -39,7 +42,6 @@ button.onclick = async ()=>{
             item.imdbID,
             item.Title,
             item.Year,
-            
             null,
             item.Genero,
             null,
@@ -57,11 +59,14 @@ button.onclick = async ()=>{
 
       });
 
-  }
+  };
   return false;
 };
-let btnfavorite = document.querySelector(".btnfavorite");
 
+
+
+
+// segunda parte, os detalhes//
 let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
  listarFilmes = async (filmes) => {
   
@@ -72,15 +77,17 @@ let btnDetalheFilme = document.querySelector(".btnDetalheFilme");
       listaFilmes.appendChild(await filme.getCard());
       filme.getBtnDetalhe().onclick=()=>{
         detalhesFilme(filme.id);
-      }
+      };
     });
   };
-
 };
+
+//mostrar os detalhes//
 
 let detalhesFilme = async(id)=>{ 
   favoritosmostrar.innerHTML="";
   listaFilmes.innerHTML="";
+  carrosel.style.display = 'none';
   some.innerHTML="";
   fetch("https://www.omdbapi.com/?apikey=9d6f18b9&i="+id)
   .then((resp)=>resp.json())
@@ -108,16 +115,15 @@ console.log(resp);
     console.log("help");
 
 
+    //parte três favoritos//
+
 document.querySelector(".btnfavorite").onclick=()=>{
 saveFavorite(filme.id);
-
-}
-document.querySelector(".btnfechar").onclick=()=>{
-
-}
+};
 
 }); }
 
+//salvar filmes no localstorage//
 
 let salvamentodeFilmes = [];
 
@@ -134,13 +140,15 @@ let saveFavorite = (id) => {
     salvamentodeFilmes.push(id);
     console.log(salvamentodeFilmes);
     salvamentodeFilmes = JSON.stringify(salvamentodeFilmes);
-    localStorage.setItem('filmesFavoritos', salvamentodeFilmes);
-    console.log("novo");
+    localStorage.setItem('filmesFavoritos',salvamentodeFilmes);
+    console.log("adicionado");
   }else{
-    console.log("repete");
-  }
+    console.log("já existe");
+  };
 
 }; 
+
+//exibe os filmes favoritados//
 
  let odiodeFetch = (id) => {
  
@@ -148,9 +156,9 @@ let saveFavorite = (id) => {
   .then((resp) => resp.json())
   .then((resp) => {
       favCards(resp.Title , resp.Genre , resp.Year , resp.Poster, null, resp.imdbID)
-  })
-}
-
+  });
+};
+//limitar os cliques no botao favorito
  function paradeclicar(){
   if(clicar===false){
 
@@ -162,23 +170,23 @@ let saveFavorite = (id) => {
     });
   }
 
-
+//limpar
 listaFilmes.innerHTML="";
 listaFilmes2.innerHTML="";
 some.innerHTML="";
 carrosel.innerHTML="";
-  }
+  };
   clicar=true;
-}
+};
 
 
 document.querySelector("#navFavoritos").onclick = ()=>{
  paradeclicar();
-  }
+  };
+
+  //criar os cards
 
   let favCards = (titulo , genero , ano , poster, btn, idFav) => {
-    
-    
     
 const cardfavoritos = document.createElement("div");
 cardfavoritos.setAttribute("class", "card1");
@@ -202,25 +210,27 @@ detalhesFavoritos2.setAttribute("style", "display:flex; justify-content:space-ar
 const generoFavoritos = document.createElement("div");
 generoFavoritos.setAttribute("class", "genero1");
 
-
 const anoFavoritos = document.createElement("div");
 anoFavoritos.setAttribute("class","Ano1");
 
 const clasFavoritos = document.createElement("div");
 clasFavoritos.setAttribute("class","Clasfav");
+
 let btnDetalhe = document.createElement("button");
 btnDetalhe.setAttribute("class","btnDetalheFilme");
 btnDetalhe.appendChild(document.createTextNode("Detalhes"));
+
 const btndesfavorite = document.createElement("button");
-     btndesfavorite.setAttribute("class","btndesfavorite");
-     const imgdesfavorite = document.createElement("img");
-     imgdesfavorite.setAttribute("class","imgdesfavorite");
-     imgdesfavorite.setAttribute("src","./Imagens/Vectordesfav.png"); 
+btndesfavorite.setAttribute("class","btndesfavorite");
+
+const imgdesfavorite = document.createElement("img");
+imgdesfavorite.setAttribute("class","imgdesfavorite");
+imgdesfavorite.setAttribute("src","./Imagens/Vectordesfav.png"); 
+
+
 textoFavoritos.appendChild(document.createTextNode(titulo));
 anoFavoritos.appendChild(document.createTextNode(ano));
 generoFavoritos.appendChild(document.createTextNode(genero));
-// clasFavoritos.appendChild(document.createTextNode(this.classificacao));
-
 bodyFavoritos.appendChild(cardfavoritos);
 cardfavoritos.appendChild(imgFavoritos);
 cardfavoritos.appendChild(textoFavoritos);
@@ -230,15 +240,11 @@ detalhesFavoritos.appendChild(clasFavoritos);
 cardfavoritos.appendChild(generoFavoritos);
 cardfavoritos.appendChild(clasFavoritos);
 cardfavoritos.appendChild(anoFavoritos);
-
-
-
 cardfavoritos.appendChild(detalhesFavoritos2);
 cardfavoritos.appendChild(detalhesFavoritos);
 cardfavoritos.appendChild(btnDetalhe);
 btndesfavorite.appendChild(imgdesfavorite); 
 cardfavoritos.appendChild(btndesfavorite);
-
 favIndex.appendChild(bodyFavoritos);
 
 btnDetalhe.onclick = () => {
@@ -247,21 +253,21 @@ btnDetalhe.onclick = () => {
 
   };
 
+ //desfavoritar
 btndesfavorite.onclick=()=>{
-  salvamentodeFilmes=JSON.parse(localStorage.getItem('filmesFavoritos'))|| [];
+salvamentodeFilmes=JSON.parse(localStorage.getItem('filmesFavoritos'))|| [];
 let index = salvamentodeFilmes.indexOf(idFav);
 if(index >-1){
-  salvamentodeFilmes.splice(index, 1);
-}
+salvamentodeFilmes.splice(index, 1);
+};
 
+//remover card
 localStorage.setItem('filmesFavoritos',JSON.stringify(salvamentodeFilmes));
 favIndex.removeChild(bodyFavoritos);
 
-}
+};
 
-
-
-}
+};
 
 
 

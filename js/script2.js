@@ -33,14 +33,12 @@
     }
 
   
-  
+  //card de pesquisar
     getCard = async () => {
+
       const card = document.createElement("div");
       card.setAttribute("class", "card");
 
-
-
-   
       const imgCartaz = document.createElement("img");
       imgCartaz.setAttribute("class", "card-img-top");
       imgCartaz.setAttribute("src", this.cartaz);
@@ -53,25 +51,19 @@
   
       const divDetalhes = document.createElement("div");
       divDetalhes.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: row;");
+
       const divDetalhes2 = document.createElement("div")
       divDetalhes2.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: column;");
+
       const divGenero = document.createElement("div");
       divGenero.setAttribute("class", "genero");
 
-  
-
-  
       const divAnoProducao = document.createElement("div");
       divAnoProducao.setAttribute("class","Ano");
   
       const divClassificacao = document.createElement("div");
       divClassificacao.setAttribute("class","Classifica");
       
-
-
-
-
-
 
       hCardTitle.appendChild(document.createTextNode(this.titulo));
       divAnoProducao.appendChild(document.createTextNode(this.ano));
@@ -86,33 +78,30 @@
       cardBody.appendChild(hCardTitle); 
       cardBody.appendChild(divDetalhes2);
       cardBody.appendChild(divDetalhes);
-    this.setBtnDetalhe(); 
-   
- cardBody.appendChild(this.getBtnDetalhe());
 
-      
-     
+      this.setBtnDetalhe(); 
+      cardBody.appendChild(this.getBtnDetalhe());
 
- 
       return card;
 
-      
-    }
-    setBtnDetalhe=()=>{
+    };
+
+    //criar botão detalhes
+setBtnDetalhe=()=>{
 this.btnDetalhe = document.createElement("button");
 this.btnDetalhe.setAttribute("class","btnDetalheFilme");
 this.btnDetalhe.setAttribute("id", this.id);
 this.btnDetalhe.appendChild(document.createTextNode("Detalhes"));
 
+};
 
-}
 getBtnDetalhe=()=>{
-  return this.btnDetalhe
-}
+  return this.btnDetalhe;
+};
 
+//criar o card detalhes
     getCard2 =  () => {
       
-    
       let cardDetalhe = document.createElement("div");
       cardDetalhe.setAttribute("class","cardDetalhe");
       
@@ -166,10 +155,9 @@ getBtnDetalhe=()=>{
       plotDetalhe.setAttribute("class","plotDetalhe");
       plotDetalhe.appendChild(document.createTextNode("Sinopse: "+this.sipnose));
 
-
-
- const btnfavorite = document.createElement("button");
+     const btnfavorite = document.createElement("button");
      btnfavorite.setAttribute("class","btnfavorite");
+
      const imgfavorite = document.createElement("img");
      imgfavorite.setAttribute("class","imgfavorite");
      imgfavorite.setAttribute("src","./Imagens/Vector.png"); 
@@ -178,11 +166,8 @@ getBtnDetalhe=()=>{
       listaFilmes.appendChild(cardDetalhe);
       imgDetalhe.appendChild(Imginserc);
       cardDetalhe.appendChild(imgDetalhe);
-     
       cardDetalhe.appendChild(textoDetalhe);
-     
       textoDetalhe.appendChild(titleDetalhe);
-      
       textoDetalhe.appendChild(anoDetalhe);
       textoDetalhe.appendChild(generoDetalhe);
       textoDetalhe.appendChild(duracaoDetalhe);
@@ -191,89 +176,11 @@ getBtnDetalhe=()=>{
       textoDetalhe.appendChild(awardsDetalhe);
       textoDetalhe.appendChild(avaliacaoDetalhe);
       textoDetalhe.appendChild(plotDetalhe);     
-          btnfavorite.appendChild(imgfavorite); 
-     cardDetalhe.appendChild(btnfavorite);
+      btnfavorite.appendChild(imgfavorite); 
+      cardDetalhe.appendChild(btnfavorite);
 
+   };
 
-
-
-
-     
-   }
-   navFavoritos = document.querySelector("#navFavoritos");
-
-
-
-
-   
-   getCard3 = () => {
-    const cardfavoritos = document.createElement("div");
-    cardfavoritos.setAttribute("class", "cardfavoritos");
-
-
-
- 
-    const imgFavoritos = document.createElement("img");
-    imgFavoritos.setAttribute("class","imgFavoritos");
-    imgFavoritos.setAttribute("src", this.cartaz);
-
-    const bodyFavoritos = document.createElement("div");
-    bodyFavoritos.setAttribute("class", "bodyFavoritos");
-
-    const cardFavoritos = document.createElement("h5");
-    cardFavoritos.setAttribute("class", "cardFavoritos");
-
-    const detalhesFavoritos = document.createElement("div");
-    detalhesFavoritos.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: row;");
-
-    const detalhesFavoritos2 = document.createElement("div")
-    detalhesFavoritos2.setAttribute("style", "display:flex; justify-content:space-around;flex-direction: column;");
-
-    const generoFavoritos = document.createElement("div");
-    generoFavoritos.setAttribute("class", "generofav");
-
-
-
-
-    const anoFavoritos = document.createElement("div");
-    anoFavoritos.setAttribute("class","Anofav");
-
-    const clasFavoritos = document.createElement("div");
-    clasFavoritos.setAttribute("class","Clasfav");
-    
-
-
-
-
-
-
-    cardFavoritos.appendChild(document.createTextNode(this.titulo));
-    anoFavoritos.appendChild(document.createTextNode(this.ano));
-    generoFavoritos.appendChild(document.createTextNode(this.genero));
-    clasFavoritos.appendChild(document.createTextNode(this.classificacao));
-
-    detalhesFavoritos2.appendChild(generoFavoritos);
-    detalhesFavoritos.appendChild(anoFavoritos);
-    detalhesFavoritos.appendChild(clasFavoritos);
-    cardfavoritos.appendChild(imgFavoritos);
-    cardfavoritos.appendChild(bodyFavoritos);
-    bodyFavoritos.appendChild(cardFavoritos); 
-    bodyFavoritos.appendChild(detalhesFavoritos2);
-    bodyFavoritos.appendChild(detalhesFavoritos);
-  this.setBtnDetalhe(); 
- 
-bodyFavoritos.appendChild(this.getBtnDetalhe());
-
-    
-   
-
-
-
-    
-  }
-   
-
-
-  }
+  };
 
    
